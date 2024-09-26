@@ -4,7 +4,6 @@ import sys
 appid = "54136453698981eea1430cbee65e00a3"
 
 
-# Рассчет направления и скорости ветра
 def get_wind_direction(deg):
     wind_direction = ['С ', 'СВ', ' В', 'ЮВ', 'Ю ', 'ЮЗ', ' З', 'СЗ']
     for i in range(0, 8):
@@ -19,7 +18,6 @@ def get_wind_direction(deg):
     return res
 
 
-# Проверка наличия в БД инфы про населенный пункт
 def get_city_id(city_name):
     try:
         res = requests.get("http://api.openweathermap.org/data/2.5/find",
@@ -37,7 +35,6 @@ def get_city_id(city_name):
     return city_identifier
 
 
-# Запрос текущей погоды
 def request_current_weather(city_id):
     try:
         res = requests.get("http://api.openweathermap.org/data/2.5/weather",
@@ -53,7 +50,7 @@ def request_current_weather(city_id):
         pass
 
 
-# Прогноз
+
 def request_forecast(city_id):
     try:
         res = requests.get("http://api.openweathermap.org/data/2.5/forecast",
