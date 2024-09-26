@@ -1,7 +1,11 @@
 import requests
 import sys
+import os
+from dotenv import load_dotenv
 
-appid = "54136453698981eea1430cbee65e00a3"
+load_dotenv()
+
+appid = os.getenv("OPENWEATHER_API_KEY")
 
 
 def get_wind_direction(deg):
